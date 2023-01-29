@@ -1,0 +1,496 @@
+{
+  "info": {
+    "name": "api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://osm.buntinglabs.com/v1/",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ],
+    "type": "bearer"
+  },
+  "item": [
+    {
+      "name": "Census",
+      "item": [
+        {
+          "name": "Extract Features",
+          "request": {
+            "description": "Calculate the number of people living in a radius around a point, according to US Census data.",
+            "url": {
+              "raw": "{{baseUrl}}/census/extract?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "census",
+                "extract"
+              ],
+              "query": [
+                {
+                  "key": "center",
+                  "description": "The center of the circle as a coordinate. Residents inside this circle will be counted in calculating the population count.\nThe center coordinate is formatted as longitude,latitude. One of center or address is required.\n",
+                  "value": "-118.328228,33.342819"
+                },
+                {
+                  "key": "radius",
+                  "description": "The radius around the center, in meters. Maximum radius is 16,093 meters (10 miles).",
+                  "value": "1000"
+                },
+                {
+                  "key": "api_key",
+                  "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                  "value": "demo"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Calculate the number of people living in a radius around a point, according to US Census data.",
+                "url": {
+                  "raw": "{{baseUrl}}/census/extract?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "census",
+                    "extract"
+                  ],
+                  "query": [
+                    {
+                      "key": "center",
+                      "description": "The center of the circle as a coordinate. Residents inside this circle will be counted in calculating the population count.\nThe center coordinate is formatted as longitude,latitude. One of center or address is required.\n",
+                      "value": "-118.328228,33.342819"
+                    },
+                    {
+                      "key": "radius",
+                      "description": "The radius around the center, in meters. Maximum radius is 16,093 meters (10 miles).",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "api_key",
+                      "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                      "value": "demo"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST"
+              },
+              "body": "{\n    \"population\": 3364,\n    \"source\": \"US Census Bureau\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Median Income",
+          "request": {
+            "description": "Calculate the median income of the population inside a circle centered at a point with a given radius.\nYou can provide either a coordinate (latitude and longitude) or an address, plus a radius around the center.\nThis endpoint is useful for real estate applications, when one might want to contextualize a property according to its surrounding neighborhood.\n",
+            "url": {
+              "raw": "{{baseUrl}}/census/income?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "census",
+                "income"
+              ],
+              "query": [
+                {
+                  "key": "center",
+                  "description": "The center of the circle as a coordinate. Residents inside this circle will be counted in calculating the population count.\nThe center coordinate is formatted as longitude,latitude. One of center or address is required.\n",
+                  "value": "-118.328228,33.342819"
+                },
+                {
+                  "key": "radius",
+                  "description": "The radius around the center, in meters. Maximum radius is 16,093 meters (10 miles).",
+                  "value": "1000"
+                },
+                {
+                  "key": "api_key",
+                  "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                  "value": "demo"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Calculate the median income of the population inside a circle centered at a point with a given radius.\nYou can provide either a coordinate (latitude and longitude) or an address, plus a radius around the center.\nThis endpoint is useful for real estate applications, when one might want to contextualize a property according to its surrounding neighborhood.\n",
+                "url": {
+                  "raw": "{{baseUrl}}/census/income?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "census",
+                    "income"
+                  ],
+                  "query": [
+                    {
+                      "key": "center",
+                      "description": "The center of the circle as a coordinate. Residents inside this circle will be counted in calculating the population count.\nThe center coordinate is formatted as longitude,latitude. One of center or address is required.\n",
+                      "value": "-118.328228,33.342819"
+                    },
+                    {
+                      "key": "radius",
+                      "description": "The radius around the center, in meters. Maximum radius is 16,093 meters (10 miles).",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "api_key",
+                      "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                      "value": "demo"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST"
+              },
+              "body": "{\n    \"median_income\": 34856.37,\n    \"source\": \"US Census ACS 2020\"\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
+      "name": "Osm",
+      "item": [
+        {
+          "name": "Extract Features",
+          "request": {
+            "description": "This endpoint downloads features from OpenStreetMap based on tags and optionally a bounding box, resulting in a GeoJSON.\nThis API extracts features from the OpenStreetMap database and formats them as GeoJSON.\nYou can filter for any tag in the database, either as `key=value` or `key=*`, and can chain tags if you need 2+ tags.\nThis endpoint is especially useful for extracting map data directly to user applications (like the browser) or as a faster alternative to [Overpass Turbo](http://overpass-turbo.eu/) and the [Overpass API](http://overpass-api.de/).\n",
+            "url": {
+              "raw": "{{baseUrl}}/osm/extract?tags=aeroway%253Drunway&bbox=-118.663330%2C33.580303%2C-117.507019%2C34.311681&api_key=demo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "osm",
+                "extract"
+              ],
+              "query": [
+                {
+                  "key": "tags",
+                  "description": "This is a list of tags in the form `key=value` to filter features for. All features extracted will satisfy each of the passed tags given by this parameter.\nThis tag list can be created by forming an array of `key=value` items and joining them into one string with the `&` character.\nBecause both = and & are reserved characters in URIs, this list must be URL encoded.\nAn example list of tags could be `leisure=park` and `name=Westglen Park`. This matches parks that have the name Westglen Park. To set this parameter, we’ll URL encode leisure=park&name=Westglen Park.\nDocumentation on tags can be found on the [TagInfo](https://docs.buntinglabs.com/openstreetmap-api/count#:~:text=found%20on%20the-,TagInfo,-resource%20website) resource website.\n",
+                  "value": "aeroway%3Drunway"
+                },
+                {
+                  "key": "bbox",
+                  "description": "This is the bounding box for extracted features. The coordinates (in EPSG:4326) of the bounding box are required to be in (minimum longitude, minimum latitude, maximum longitude, maximum latitude) order. \nCoordinates are expressed as signed floats joined by commas.\nAn example bounding box in the US could be `-108.984375,32.026706,-103.051758,37.195331`.\nYou can create a bounding box `on bboxfinder`, or in shapely by invoking the `bounds` property on a geometry.\n",
+                  "value": "-118.663330,33.580303,-117.507019,34.311681"
+                },
+                {
+                  "key": "api_key",
+                  "description": "Your account's API key. \nYou can create an API key by registering for an account and copy and paste it from your account dashboard.\n",
+                  "value": "demo"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "This endpoint downloads features from OpenStreetMap based on tags and optionally a bounding box, resulting in a GeoJSON.\nThis API extracts features from the OpenStreetMap database and formats them as GeoJSON.\nYou can filter for any tag in the database, either as `key=value` or `key=*`, and can chain tags if you need 2+ tags.\nThis endpoint is especially useful for extracting map data directly to user applications (like the browser) or as a faster alternative to [Overpass Turbo](http://overpass-turbo.eu/) and the [Overpass API](http://overpass-api.de/).\n",
+                "url": {
+                  "raw": "{{baseUrl}}/osm/extract?tags=aeroway%253Drunway&bbox=-118.663330%2C33.580303%2C-117.507019%2C34.311681&api_key=demo",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "osm",
+                    "extract"
+                  ],
+                  "query": [
+                    {
+                      "key": "tags",
+                      "description": "This is a list of tags in the form `key=value` to filter features for. All features extracted will satisfy each of the passed tags given by this parameter.\nThis tag list can be created by forming an array of `key=value` items and joining them into one string with the `&` character.\nBecause both = and & are reserved characters in URIs, this list must be URL encoded.\nAn example list of tags could be `leisure=park` and `name=Westglen Park`. This matches parks that have the name Westglen Park. To set this parameter, we’ll URL encode leisure=park&name=Westglen Park.\nDocumentation on tags can be found on the [TagInfo](https://docs.buntinglabs.com/openstreetmap-api/count#:~:text=found%20on%20the-,TagInfo,-resource%20website) resource website.\n",
+                      "value": "aeroway%3Drunway"
+                    },
+                    {
+                      "key": "bbox",
+                      "description": "This is the bounding box for extracted features. The coordinates (in EPSG:4326) of the bounding box are required to be in (minimum longitude, minimum latitude, maximum longitude, maximum latitude) order. \nCoordinates are expressed as signed floats joined by commas.\nAn example bounding box in the US could be `-108.984375,32.026706,-103.051758,37.195331`.\nYou can create a bounding box `on bboxfinder`, or in shapely by invoking the `bounds` property on a geometry.\n",
+                      "value": "-118.663330,33.580303,-117.507019,34.311681"
+                    },
+                    {
+                      "key": "api_key",
+                      "description": "Your account's API key. \nYou can create an API key by registering for an account and copy and paste it from your account dashboard.\n",
+                      "value": "demo"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST"
+              },
+              "description": "When the OSM feature extract is successfully created, a 200 OK response will be issued, with `Content-Type: application/json`. The body will be a valid [GeoJSON FeatureCollection](https://geojson.org/).",
+              "body": "{\n    \"type\": \"commons.FeatureCollection\",\n    \"features\": [\n        {\n            \"type\": \"Feature\",\n            \"properties\": {\n                \"aeroway\": \"runway\"\n            },\n            \"geometry\": {\n                \"type\": \"MultiPolygon\",\n                \"coordinates\": [\n                    [\n                        111.9623558,\n                        40.7735137\n                    ],\n                    [\n                        111.9618135,\n                        40.7735137\n                    ],\n                    [\n                        111.9618012,\n                        40.7988855\n                    ],\n                    [\n                        111.9623435,\n                        40.7989041\n                    ],\n                    [\n                        111.9623558,\n                        40.7735137\n                    ]\n                ]\n            }\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        },
+        {
+          "name": "Count Features",
+          "request": {
+            "description": "This endpoint counts the features in OpenStreetMap that match the given tags and reside in a bounding box.\n",
+            "url": {
+              "raw": "{{baseUrl}}/osm/count?tags=&bbox=&api_key=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "osm",
+                "count"
+              ],
+              "query": [
+                {
+                  "key": "tags",
+                  "value": "",
+                  "description": "This is a list of tags in the form `key=value` to filter features for. All features extracted will satisfy each of the passed tags given by this parameter.\nThis tag list can be created by forming an array of `key=value` items and joining them into one string with the `&` character.\nBecause both = and & are reserved characters in URIs, this list must be URL encoded.\nAn example list of tags could be `leisure=park` and `name=Westglen Park`. This matches parks that have the name Westglen Park. To set this parameter, we’ll URL encode leisure=park&name=Westglen Park.\nDocumentation on tags can be found on the [TagInfo](https://docs.buntinglabs.com/openstreetmap-api/count#:~:text=found%20on%20the-,TagInfo,-resource%20website) resource website.\n"
+                },
+                {
+                  "key": "bbox",
+                  "value": "",
+                  "description": "This is the bounding box for extracted features. The coordinates (in EPSG:4326) of the bounding box are required to be in (minimum longitude, minimum latitude, maximum longitude, maximum latitude) order. \nCoordinates are expressed as signed floats joined by commas.\nAn example bounding box in the US could be `-108.984375,32.026706,-103.051758,37.195331`.\nYou can create a bounding box `on bboxfinder`, or in shapely by invoking the `bounds` property on a geometry.\n"
+                },
+                {
+                  "key": "api_key",
+                  "value": "",
+                  "description": "Your account's API key. \nYou can create an API key by registering for an account and copy and paste it from your account dashboard.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
+      "name": "Plss",
+      "item": [
+        {
+          "name": "Geocode Section",
+          "request": {
+            "description": "This API finds a Public Land Survey System section based on its section number, range, township, and principal meridian. For example, if you were looking at a survey plat in San Francisco, California, it might refer to the section as being section 31 in range R05W, township T02S, and meridian MDM. This means that the section falls inside the survey township located 2 townships south and 5 townships west of the Mt. Diablo Meridian and its base line, and as section 31, it is the southwest corner of that township. This API enables you to download the GeoJSON for a particular range, township, meridian, and section number combination.",
+            "url": {
+              "raw": "{{baseUrl}}/plss/section?section=31&range=5W&township=25&meridian=Mount%2BDiablo%2BMeridian&api_key=demo-key",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plss",
+                "section"
+              ],
+              "query": [
+                {
+                  "key": "section",
+                  "description": "The section number, between 1 and 36 (inclusive), specifies which section of the township should be returned.",
+                  "value": "31"
+                },
+                {
+                  "key": "range",
+                  "description": "The range specifies the numbered distance and bearing (east or west) from the principal meridian.",
+                  "value": "5W"
+                },
+                {
+                  "key": "township",
+                  "description": "The township specifies the numbered distance and bearing (north or south) from the baseline associated with each principal meridian.",
+                  "value": "25"
+                },
+                {
+                  "key": "meridian",
+                  "description": "This can take any value below. The values are provided alongside their approximate count, based on the total area surveyed to that meridian.",
+                  "value": "Mount+Diablo+Meridian"
+                },
+                {
+                  "key": "api_key",
+                  "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                  "value": "demo-key"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "This API finds a Public Land Survey System section based on its section number, range, township, and principal meridian. For example, if you were looking at a survey plat in San Francisco, California, it might refer to the section as being section 31 in range R05W, township T02S, and meridian MDM. This means that the section falls inside the survey township located 2 townships south and 5 townships west of the Mt. Diablo Meridian and its base line, and as section 31, it is the southwest corner of that township. This API enables you to download the GeoJSON for a particular range, township, meridian, and section number combination.",
+                "url": {
+                  "raw": "{{baseUrl}}/plss/section?section=31&range=5W&township=25&meridian=Mount%2BDiablo%2BMeridian&api_key=demo-key",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plss",
+                    "section"
+                  ],
+                  "query": [
+                    {
+                      "key": "section",
+                      "description": "The section number, between 1 and 36 (inclusive), specifies which section of the township should be returned.",
+                      "value": "31"
+                    },
+                    {
+                      "key": "range",
+                      "description": "The range specifies the numbered distance and bearing (east or west) from the principal meridian.",
+                      "value": "5W"
+                    },
+                    {
+                      "key": "township",
+                      "description": "The township specifies the numbered distance and bearing (north or south) from the baseline associated with each principal meridian.",
+                      "value": "25"
+                    },
+                    {
+                      "key": "meridian",
+                      "description": "This can take any value below. The values are provided alongside their approximate count, based on the total area surveyed to that meridian.",
+                      "value": "Mount+Diablo+Meridian"
+                    },
+                    {
+                      "key": "api_key",
+                      "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                      "value": "demo-key"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [],
+                "method": "POST"
+              },
+              "body": "{\n    \"type\": \"Feature\",\n    \"properties\": {\n        \"description\": \"Sec. 31, T.2S, R.5W, Mount Diablo P.M.\",\n        \"acreage\": 640\n    },\n    \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n            [\n                -122.462026,\n                37.70797\n            ],\n            [\n                -122.4413432,\n                37.70795\n            ],\n            [\n                -122.4424872,\n                37.72361\n            ],\n            [\n                -122.4621782,\n                37.72367\n            ],\n            [\n                -122.462026,\n                37.70797\n            ]\n        ]\n    }\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    },
+    {
+      "name": "Poi",
+      "item": [
+        {
+          "name": "Neighborhood Description",
+          "request": {
+            "description": "This endpoint generates a description of a neighborhood surrounding a location. This is useful for describing a rental or home listing on a website or contextualizing a potential investment opportunity for prospective investors.",
+            "url": {
+              "raw": "{{baseUrl}}/poi?location=-122.4319%2C37.7849&api_key=demo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "poi"
+              ],
+              "query": [
+                {
+                  "key": "location",
+                  "description": "The location of the area to describe.",
+                  "value": "-122.4319,37.7849"
+                },
+                {
+                  "key": "api_key",
+                  "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                  "value": "demo"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "This endpoint generates a description of a neighborhood surrounding a location. This is useful for describing a rental or home listing on a website or contextualizing a potential investment opportunity for prospective investors.",
+                "url": {
+                  "raw": "{{baseUrl}}/poi?location=-122.4319%2C37.7849&api_key=demo",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "poi"
+                  ],
+                  "query": [
+                    {
+                      "key": "location",
+                      "description": "The location of the area to describe.",
+                      "value": "-122.4319,37.7849"
+                    },
+                    {
+                      "key": "api_key",
+                      "description": "Your account's API key. You can create an API key by [registering for an account](https://buntinglabs.com/account/register) and copy and paste it from your [account dashboard](https://buntinglabs.com/dashboard).",
+                      "value": "demo"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET"
+              },
+              "body": "\"Welcome to Japantown, a vibrant and diverse neighborhood in San Francisco! The area is known for its many nearby Asian restaurants, and the convenience of having a Safeway right around the corner for all your grocery needs. The neighborhood is highly educated, with 29% of residents holding masters degrees. The area is very walkable and densely populated with 3-story buildings. The average home in the area sells for $1.2M. The nearby public schools are rated as 5/10, it may not be the best option for families with school-aged children. But for those that work in the Financial District, the SFMTA 24 and 38 buses provide good transit options into the city. This is a great neighborhood for those looking to be in the heart of the city, with easy access to all that San Francisco has to offer.\"",
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "_type": "endpoint"
+        }
+      ],
+      "_type": "container"
+    }
+  ]
+}
