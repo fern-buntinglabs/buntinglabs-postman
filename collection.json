@@ -30,17 +30,17 @@
       "name": "Census",
       "item": [
         {
-          "name": "Extract Features",
+          "name": "Population",
           "request": {
             "description": "Calculate the number of people living in a radius around a point, according to US Census data.",
             "url": {
-              "raw": "{{baseUrl}}/census/extract?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
+              "raw": "{{baseUrl}}/census/population?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "census",
-                "extract"
+                "population"
               ],
               "query": [
                 {
@@ -72,13 +72,13 @@
               "originalRequest": {
                 "description": "Calculate the number of people living in a radius around a point, according to US Census data.",
                 "url": {
-                  "raw": "{{baseUrl}}/census/extract?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
+                  "raw": "{{baseUrl}}/census/population?center=-118.328228%2C33.342819&radius=1000&api_key=demo",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
                     "census",
-                    "extract"
+                    "population"
                   ],
                   "query": [
                     {
